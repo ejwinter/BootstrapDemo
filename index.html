@@ -86,7 +86,58 @@
 
 <div class="container-fluid">
   <div class="col-md-4">
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
+    <form role="form">
+      <div class="form-group">
+        <label class="control-label" for="exampleInput">Username</label>
+        <input type="text" class="form-control" id="exampleInput" placeholder="Enter username">
+        <span class="help-block">Valid values are between 3 and 10 characters</span>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="checkbox">
+        <label  class="control-label">
+          <input type="checkbox"> Check me out
+        </label>
+      </div>
+
+      <span class="radio-inline">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+          Option 1
+        </label>
+      </span>
+      
+      <span class="radio-inline">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+          Option 2
+        </label>
+      </span>
+
+      <div class="form-group">
+      <select class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      </div>
+
+      <div class="form-group">
+      <select multiple class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      </div>
+
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
   </div>
 
   <div class="col-md-8">
@@ -145,6 +196,21 @@
   <script type="text/javascript" src="js/main/index.js"></script>
   <script type="text/javascript">
   $(function(){
+    $("#exampleInput").on("keyup", function(){
+      var $changedTextBox = $(this);
+      var value = $changedTextBox.val();
+      if(value && value.length > 2){
+        if(value.length > 10){
+          $changedTextBox.closest(".form-group").addClass("has-error")
+        }else{
+          $changedTextBox.closest(".form-group").addClass("has-success")
+          $changedTextBox.closest(".form-group").removeClass("has-error")
+        }
+      }else{
+        $changedTextBox.closest(".form-group").removeClass("has-success")
+        $changedTextBox.closest(".form-group").removeClass("has-error")
+      }
+    });
 
   });
   </script>
