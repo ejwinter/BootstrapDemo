@@ -11,6 +11,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title></title>
 
+    <script type="text/javascript" src="js/lib/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/lib/lodash.min.js"></script>
+    <script type="text/javascript" src="js/lib/handlebars-1.1.2.js"></script>
+    <script type="text/javascript" src="js/lib/ember-1.4.0.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main/site.js"></script>
+
+
     <!-- CSS -->
 
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
@@ -136,6 +144,22 @@
       </select>
       </div>
 
+      <div class="form-group input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" class="form-control" value="100" placeholder="Enter a cost"></input>
+        <span class="input-group-addon">.00</span>
+      </div>
+
+      <div class="input-group">
+        <label class="form-label">Do you have a comment?</label>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <input type="checkbox"/>
+          </span>
+          <input type="text" class="form-control" placeholder="Enter your comment">
+        </div>
+      </div>
+
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
   </div>
@@ -187,12 +211,6 @@
   </div>
 </div>
 
-  <script type="text/javascript" src="js/lib/jquery-1.10.2.js"></script>
-  <script type="text/javascript" src="js/lib/lodash.min.js"></script>
-  <script type="text/javascript" src="js/lib/handlebars-1.1.2.js"></script>
-  <script type="text/javascript" src="js/lib/ember-1.4.0.js"></script>
-  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/main/site.js"></script>
   <script type="text/javascript" src="js/main/index.js"></script>
   <script type="text/javascript">
   $(function(){
