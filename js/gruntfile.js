@@ -2,20 +2,16 @@ module.exports = function(grunt) {
   var appPath = 'main/**/*.js';
   var testPath = 'specs/**/*.js';
   grunt.initConfig({
-      jasmine : {
-        src : 'main/**/*.js',
-        specs : 'specs/**/*Spec.js',
-        helpers : 'specs/helpers/*.js',
-        template: require('grunt-template-jasmine-requirejs'),
-        templateOptions: {
-          requireConfigFile: "main/require.js"
+      karma: {
+        unit: {
+          configFile: 'karma.conf.js',
+          runnerPort: 9999,
+          browsers: ['Chrome']
         },
-        timeout : 10000,
-        junit : {
-          output : 'junit/'
-        },
-        phantomjs : {
-          'ignore-ssl-errors' : true
+        continuous: {
+          configFile: 'karma.conf.js',
+          singleRun: true,
+          browsers: ['PhantomJS']
         }
       },
       jshint: {
@@ -23,16 +19,11 @@ module.exports = function(grunt) {
           options: {
               curly: true
           }
-      },
-      watch: {
-          files: [testPath, appPath], 
-          tasks: ['jshint','jasmine']
-      }   
+      }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['jshint', 'jasmine']);    
+  grunt.registerTask('default', ['jshint', 'karma']);    
 };

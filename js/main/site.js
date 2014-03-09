@@ -1,7 +1,3 @@
 
-var site = site || {};
+site = {};
 
-/** a global jquery callback */
-$(function(){
-
-});
