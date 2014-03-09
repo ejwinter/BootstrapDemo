@@ -37,13 +37,14 @@
     <script type="text/javascript" src="js/lib/handlebars-1.1.2.js"></script>
     <script type="text/javascript" src="js/lib/backbone-min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="pnotify/jquery.pnotify.js"></script>
     <script type="text/javascript" src="js/main/site.js"></script>
 
 
     <!-- CSS -->
 
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
-    
+    <link href="pnotify/jquery.pnotify.default.css" rel="stylesheet" />
     <link href="css/global.css" rel="stylesheet" />
 
     <!-- JavaScript -->
@@ -231,7 +232,13 @@
       </div>
 
       <div class="tab-pane" id="messages">
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
 
+        <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Click to see some success.">Success</button>
+
+        <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Click to see some info.">Info</button>
+
+        <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Click to see an error!">Error</button>
       </div>
     </div>
   </div>
@@ -269,6 +276,20 @@
       evt.preventDefault();
       var modalTemplate = Handlebars.compile($("#myModal").html());
       $(modalTemplate()).modal();
+    });
+
+    $("#messages .btn").tooltip();
+
+    $(".btn-info").click(function(evt){
+      $.pnotify({title:"Info", text:"Some great info", type:"info"});
+    });
+
+    $(".btn-success").click(function(evt){
+      $.pnotify({title:"Success", text: "My Hero", type:"success"});
+    });
+
+    $(".btn-danger").click(function(evt){
+      $.pnotify({title:"Error", text: "Oh no!", type:"error"});
     });
 
   });
